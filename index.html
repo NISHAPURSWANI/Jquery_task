@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=Dancing Script' rel='stylesheet'>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+     
+    $(document).ready(function(){
+            $("q2").hide()
+            $("q3").hide()
+            $("q4").hide()
+            $("q5").hide()
+            $("q6").hide()
+            $("q7").hide()
+
+
+
+	
+              $('#name').keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+				var qu1=$("#name").val();
+         console.log(qu1)
+         if(qu1==""){
+             alert("please enter your name")
+         }
+         else{
+         $(".ans").html("Hello,My name is " +qu1+ "." );
+         $("#q2").show();
+         $("#q1").hide();
+         }
+         }
+
+     
+   
+       
+        
+	  });
+      $("select.color").change(function(){
+        var sc = $(this).children("option:selected").val();
+        console.log("<br/> "+"My favorite color is " + sc +".");
+        var qu2= sc ;
+
+         console.log(typeof(qu2));
+
+         $(".ans").append("<br/> "+"My favorite color is "+ sc +".");
+    });
+      $(".color").keypress(function(event){
+			 var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+		
+			 var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+		
+          $("#q3").show();
+          $("#q2").hide();
+		  }
+		  
+		  }
+		  
+		  });
+       
+	   $("#q3").keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+		
+					var radioValue = $("input[name='hpet']:checked").val();
+					if(radioValue=="yes"){
+                    console.log("yes")
+                    $(".ans").append("<br/>"+"Yes, I have a Pet.");
+
+                    $("#q4").show();
+                    $("#q3").hide();
+					}
+					else{
+                    console.log("no")
+                    $(".ans").append("<br/>"+"No, I don't have a Pet.");
+                    $("#q5").show();
+                    $("#q3").hide();
+					}
+        
+				}
+        });
+	   $('#pet').keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+				var qu4=$("#pet").val();
+         console.log(qu4)
+         if(qu4==""){
+             alert("please enter your pet's name")
+         }
+         else{
+         $(".ans").append("<br/>"+"It's name is " +qu4 +"." );
+         $("#q4").hide();
+         $("#q6").show();
+         $("#q7").show();
+        
+         }
+		 }
+            
+         
+      });
+	
+  $('#q5').keypress(function(event){
+                var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+		
+            var favorite = [];
+            $.each($("input[name='sport']:checked"), function(){
+                favorite.push($(this).val());
+            });
+            console.log("<br/>"+"My favourite sports are: " + favorite.join(", "));
+            $(".ans").append("<br/>"+"My favourite sports are: " + favorite.join(", "));
+			
+			
+            $("#q5").hide();
+         
+          $("#q6").show();
+          $("#q7").show();
+		  }
+		  });
+          
+        });
+        
+</script>
+ 
+
+
+
+</head>
+<style>
+.input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid blue;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box red;
+  font-family: 'Arvo';
+  font-size: 18px;
+  height: 50px;
+ 
+  padding: 10px 0px;
+ 
+  width: 350px;
+}
+</style>
+<div style=" height:720px;">
+<body style="background-color: #ff6666;">
+
+<div style="background-color: #ff9999;">
+  <h1 style="font-family: 'Dancing Script';font-size: 50px; text-align: center;  "><b>survey</b></h1>
+</div>
+<div class="card card-block justify-content-center" style="margin-bottom: 150px;margin-top: 150px;border:0px; background-color: #ff6666;">
+
+
+<div class="card-body">
+
+<div class="container">
+  <div class="row">
+    <div  >
+        
+        
+
+      <q1 id="q1">Answer this Question<br>Question 1<br>
+         
+        <p ><b>Enter your name.</b><br><br>
+            <input type="text" class="input" id="name" name="myname" placeholder="Enter your Answer here...."><br><br>
+            <span id="name1"></span>
+            <br>
+            <span style="color:gray";>press enter for next question.</span>
+        </p>
+        </q1>
+            
+        <q2 id="q2">Answer this Question<br>Question 2<br>
+          <p>
+          <b> Q2. What is your favorite color?</b>
+<select class="color">
+    <option value=""></option>
+
+  <option value="red" style="color:red;">Red</option>
+  <option value="blue" style="color:blue;">Blue</option>
+  <option value="green" style="color:green;">Green</option>
+  <option value="yellow" style="color:yellow;">Yellow</option>
+   <option value="orange"style="color:orange;">Orange</option>
+  <option value="black"style="color:black;">Black</option>
+  <option value="gold" style="color:gold;">Gold</option>
+  <option value="purple"style="color:purple;">Purple</option>
+   <option value="cyan"style="color:cyan;">Cyan</option>
+  <option value="maroon"style="color:maroon;">Maroon</option>
+  <option value="gray"style="color:gray;">Gray</option>
+  <option value="brown"style="color:brown;">Brown</option>
+   <option value="darkgreen"style="color:darkgreen;">Dark Green</option>
+  <option value="olive"style="color:olive;">Olive</option>
+  <option value="magenta"style="color:magenta;">Magenta</option>
+  <option value="indigo"style="color:indigo">Indigo</option>
+</select>            <br></br>
+            
+          </p>
+          <span style="color:gray";>press enter for next question.</span>
+        
+        </q2>
+        <br>
+        <q3 id="q3">Answer this Question<br>Question 3<br>
+      <p> 
+        <b> Q3.  Do yo have a pet?</b>
+          <button class="btn btn-outline-dark"><input type="radio" name="hpet" value="yes" id="npet">Yes</button>
+          <button class="btn btn-outline-dark"><input type="radio" name="hpet" value="no" id="npet">No</button>
+      <br>
+
+          
+      </p>
+	  <span style="color:gray";>press enter for next question.</span>
+        </q3>
+        <q4 id="q4">Answer this Question<br>Question 4<br>
+         <b> Q4. what is your pet's name<br></b>
+          <input type="text" class="input" id="pet" placeholder="Enter your Answer here...."><br><br>
+
+          <span id="name2"></span>
+          <br>
+      </q4>
+
+      <q5 id="q5">Answer this Question<br>Question 5<br>
+         <b> Q4. What are your favorite sports?<br><br></b>
+         <button class="btn btn-primary"><input type="checkbox" value="football" name="sport" id="sports"> Football</button>
+         <button class="btn btn-primary"><input type="checkbox" value="baseball" name="sport" id="sports"> Baseball</button>
+         <button class="btn btn-primary"><input type="checkbox" value="cricket" name="sport"  id="sports"> Cricket</button>
+         <button class="btn btn-primary"><input type="checkbox" value="tennis" name="sport"  id="sports"> Tennis</button>
+         <button class="btn btn-primary"><input type="checkbox" value="basketball" name="sport" id="sports"> Basket Ball</button>
+          <br></br>
+          
+          
+		  
+      
+      
+      
+      </q5>
+            </div>
+        </div>
+
+      <q6 id="q6">
+          <img src="https://img.freepik.com/free-vector/thank-you-lettering_1262-6963.jpg?size=626&ext=jpg" alt="Thank you" style="width:400px; margin-left: 400px;margin-top: -100px;"></img>
+
+      </q6><br>
+      <div>
+      <q7 id="q7">
+        <div class="card" style="width:400px;margin-left:400px;border:0px">
+            <div class="card-body" >
+                Your Answers:
+                <p class="ans" style="    font-family: 'Dancing Script';font-size: 22px;font-weight:bold; color:blue"></p>
+            </div>
+          </div>
+    
+        </div>          
+               
+          
+      </q7>
+              
+</div>
+</div>
+</p>
+     
+      </div>
+   
+   
+    
+  </div>
+</div>
+
+</body>
+</div>
+</div>
+</html>
